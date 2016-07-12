@@ -1,0 +1,17 @@
+# creates a graph from the data stored in file tfd.dat
+# tfd.dat contains key-value pairs "term term-frequency" separated by space and each pair on a single line
+
+set title "term frequency distribution"
+
+set xlabel "term"
+set ylabel "frequency"
+set yrange [0:*]
+set ytics 0,10
+
+set style fill solid 1.0
+set boxwidth 0.7 relative
+
+set terminal png enhanced font "Helvetica" 16
+set output "tfd.png"
+
+plot "tfd.dat" using ($0):2:xticlabels(1) notitle with boxes
